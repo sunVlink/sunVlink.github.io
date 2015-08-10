@@ -6,7 +6,7 @@ date:       2014-09-24 12:00:00
 author:     "Start Bootstrap"
 header-img: "img/post-bg-06.jpg"
 ---
-{% highlight Objective-C %}
+{% highlight Objective-C linenos %}
 	UIButton *button1 = [buttons firstObject];
     button1.viewY = titleView.viewHeight + titleView.viewY + line_width;
     button1.viewSize = CGSizeMake(ratio(502.0), ratio(560.0) - line_width * 2);
