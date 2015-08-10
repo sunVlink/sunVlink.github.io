@@ -6,8 +6,8 @@ date:       2014-09-24 12:00:00
 author:     "Start Bootstrap"
 header-img: "img/post-bg-06.jpg"
 ---
-
-	UIButton *button1 = [buttons firstObject];
+{% highlight Objective-C %}
+UIButton *button1 = [buttons firstObject];
     button1.viewY = titleView.viewHeight + titleView.viewY + line_width;
     button1.viewSize = CGSizeMake(ratio(502.0), ratio(560.0) - line_width * 2);
     UIButton *button2 = [buttons objectAtIndex:1];
@@ -23,6 +23,7 @@ header-img: "img/post-bg-06.jpg"
     UIButton *button5 = [buttons objectAtIndex:4];
     button5.viewOrigin = CGPointMake(button4.viewX + button4.viewWidth + line_width, button4.viewY);
     button5.viewSize = button4.viewSize;
+{% endhighlight %}
 
 <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
 
