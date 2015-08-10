@@ -7,16 +7,36 @@ author:     "Start Bootstrap"
 header-img: "img/post-bg-06.jpg"
 ---
 {% highlight Objective-C linenos %}
-	UIButton *button1 = [buttons firstObject];
-	button1.viewY = titleView.viewHeight + titleView.viewY + line_width;
-	button1.viewSize = CGSizeMake(ratio(564.0), ratio(480.0) - line_width * 2);
-	UIButton *button2 = [buttons objectAtIndex:1];
-	button2.viewOrigin = CGPointMake(button1.viewX + 	button1.viewWidth + line_width, button1.viewY);
-	button2.viewSize = CGSizeMake(ratio(678.0), 	button1.viewHeight / 2.0);
-	UIButton *button3 = [buttons objectAtIndex:2];
-	button3.viewOrigin = CGPointMake(button2.viewX, 	button2.viewY + line_width + button2.viewHeight);
-	button3.viewSize = button2.viewSize;
-	button3.viewHeight -= line_width;
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  switch (indexPath.section) {
+    case CollectionViewSectionSpecials:
+    {
+      [[self.viewModel didSelectSpecialAtIndexPath:indexPath] subscribeNext:^(id x) {
+        [self.navigationController pushViewController:x animated:YES];
+      }];
+    }
+      break;
+    case CollectionViewSectionCategories:
+    {
+      @weakify(self)
+      [[self.viewModel didSelectCategoryAtIndexPath:indexPath] subscribeNext:^(id x) {
+        @strongify(self)
+        [x setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:x animated:YES];
+      }];
+    }
+      break;
+    case CollectionViewSectionPromotes:
+      //FIXME: Directly accessing Model!
+      [[JCAppContext sharedManager] showProductDetail:self.viewModel.promotedProductEntities[indexPath.row] fromNavigationController:self.navigationController];
+      break;
+    default:
+      break;
+  }
+}
+
 {% endhighlight %}
 
 <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
