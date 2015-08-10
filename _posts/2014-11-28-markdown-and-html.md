@@ -7,10 +7,10 @@ Jeykll supports the use of [Markdown](http://daringfireball.net/projects/markdow
 
 Tables have also been extended from Markdown:
 
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
+First Header  | Second Header | Third Header
+------------- | ------------- | ------------
+Content Cell  | Content Cell  | Content Cell
+Content Cell  | Content Cell  | Content Cell
 
 Here's an example of an image, which is included using Markdown:
 
