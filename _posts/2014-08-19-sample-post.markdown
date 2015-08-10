@@ -25,7 +25,7 @@ Duis lacinia commodo dui, vel aliquam metus hendrerit eu. Integer et scelerisque
 
 Example code: 
 
-{% highlight ruby %}
+{% highlight Object-C %}
 def print_hi(name)
   puts "Hi, #{name}"
 end
@@ -33,6 +33,36 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
+{% highlight Object-C %}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  switch (indexPath.section) {
+    case CollectionViewSectionSpecials:
+    {
+      [[self.viewModel didSelectSpecialAtIndexPath:indexPath] subscribeNext:^(id x) {
+        [self.navigationController pushViewController:x animated:YES];
+      }];
+    }
+      break;
+    case CollectionViewSectionCategories:
+    {
+      @weakify(self)
+      [[self.viewModel didSelectCategoryAtIndexPath:indexPath] subscribeNext:^(id x) {
+        @strongify(self)
+        [x setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:x animated:YES];
+      }];
+    }
+      break;
+    case CollectionViewSectionPromotes:
+      //FIXME: Directly accessing Model!
+      [[JCAppContext sharedManager] showProductDetail:self.viewModel.promotedProductEntities[indexPath.row] fromNavigationController:self.navigationController];
+      break;
+    default:
+      break;
+  }
+}
+{% endhighlight %}
 
 A list: 
 
