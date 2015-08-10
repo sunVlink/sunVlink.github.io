@@ -1,10 +1,10 @@
 # Site settings
-title: Clean Blog
+title: sunVlink's Blog
 header-img: img/home-bg.jpg
-email: your-email@yourdomain.com
+email: sunVlink@163.com
 description: "Write your site description here. It will be used as your sites meta description as well!"
-baseurl: "/sunVlink.github.io"
-url: "http://yourdomain.com"
+baseurl: ""
+url: "http://sunVlink.github.io"
 twitter_username: SBootstrap
 github_username:  davidtmiller
 facebook_username:  IronSummitMedia

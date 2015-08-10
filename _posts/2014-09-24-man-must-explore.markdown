@@ -7,6 +7,23 @@ author:     "Start Bootstrap"
 header-img: "img/post-bg-06.jpg"
 ---
 
+	UIButton *button1 = [buttons firstObject];
+    button1.viewY = titleView.viewHeight + titleView.viewY + line_width;
+    button1.viewSize = CGSizeMake(ratio(502.0), ratio(560.0) - line_width * 2);
+    UIButton *button2 = [buttons objectAtIndex:1];
+    button2.viewOrigin = CGPointMake(button1.viewX + button1.viewWidth + line_width, button1.viewY);
+    button2.viewSize = CGSizeMake(ratio(370.0), button1.viewHeight / 2.0);
+    UIButton *button3 = [buttons objectAtIndex:2];
+    button3.viewOrigin = CGPointMake(button2.viewX + button2.viewWidth + line_width, button2.viewY);
+    button3.viewSize = button2.viewSize;
+    UIButton *button4 = [buttons objectAtIndex:3];
+    button4.viewOrigin = CGPointMake(button2.viewX, button3.viewY + button3.viewHeight + line_width);
+    button4.viewSize = button3.viewSize;
+    button4.viewHeight -= line_width;
+    UIButton *button5 = [buttons objectAtIndex:4];
+    button5.viewOrigin = CGPointMake(button4.viewX + button4.viewWidth + line_width, button4.viewY);
+    button5.viewSize = button4.viewSize;
+
 <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
 
 <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
