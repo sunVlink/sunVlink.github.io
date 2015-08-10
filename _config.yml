@@ -1,73 +1,110 @@
-# SITE CONFIGURATION
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://example.com" # the base hostname & protocol for your site
+#
+# Basic settings.
+#
+#url: http://qckanemoto.github.io # or http://you.github.io
+url: http://localhost:4000
+baseurl: /jekyll-qck-theme # or ""
+title: Your name
+description: Some descriptions of yourself.
+avatar: /assets/img/ogp.png
 
-# THEME-SPECIFIC CONFIGURATION
-theme:
-  # Meta
-  title: Type Theme
-  avatar: avatar.png
-  gravatar: # Email MD5 hash
-  description: "A website with blog posts and pages" # used by search engines
-
-  # Header and footer text
-  header_text: >
-     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-     <p>Remove all header text in <code>_config.yml</code> to disable this feature.</p>
-  header_text_feature_image:
-  footer_text: >
-   Powered by <a href="http://jekyllrb.com">Jekyll</a> with <a href="https://rohanchandra.github.io/project/type/">Type Theme</a>
-
-  # Icons
-  rss: false
-  email_address: # Full email address, e.g. "sam@example.com"
-  behance:
+#
+# Icons
+#
+icons:
+  rss: true
+  email:
+  github: qckanemoto
   bitbucket:
-  dribbble:
+  twitter: qckanemoto
   facebook:
-  flickr:
-  github: "rohanchandra/type-theme"
   google_plus:
+  tumblr:
+  behance:
+  dribbble:
+  flickr:
   instagram:
-  linkedin:  # Full URL
+  linkedin:  # full URL
   pinterest:
   reddit:
   soundcloud:
-  stack_exchange:  # Full URL
+  stack_exchange:  # full URL
   steam:
-  tumblr:
-  twitter: "twitter"
   wordpress:
   youtube:
 
-  # Scripts
-  google_analytics: # Tracking ID, e.g. "UA-000000-01"
-  disqus_shortname:
-  katex: true # Enable if using math markup
+#
+# Prettify url.
+#
+permalink: pretty
 
-  # Localization strings
-  str_follow_on: "Follow on"
-  str_rss_follow: "Follow RSS feed"
-  str_email: "Email"
-  str_next: "Next"
-  str_prev: "Prev"
-  str_continue_reading: "Continue reading"
+#
+# Scripts.
+#
+google_analytics: # e.g. UA-000000-01
+disqus:
 
-  # Colours, typography and padding
-  # Open the "_sass > base" folder, and open "_variables.scss"
-  google_fonts: "Source+Sans+Pro:400,700,700italic,400italic"
-  
-  # Post navigation
-  post_navigation: false
+#
+# Localizations.
+#
+str_next: Next
+str_prev: Prev
+str_read_more: Read more...
+str_search: Search
+str_recent_posts: Recent posts
+str_show_all_posts: Show all posts
 
-# PAGINATION
-paginate: 5
-paginate_path: "blog/page:num"
+#
+# Recent posts.
+#
+recent_posts_num: 10
 
-# BUILD SETTINGS
-markdown: kramdown
+#
+# Pagination.
+#
+paginate: 10
+paginate_path: page/:num
+
+#
+# Social.
+#
+share_buttons: false
+ogp:
+  image_url: http://qckanemoto.github.io/jekyll-qck-theme/assets/img/ogp.png
+  fb:
+    admin: # facebook admin id
+    app_id: # facebook application id
+
+#
+# Gems.
+#
+gems:
+  - jemoji
+
+#
+# Styles: see "_sass/base/_variables.scss"
+#
+
+#
+# !! Danger zone !!
+#
+
+include: ["_pages"]
+
+markdown: redcarpet
+redcarpet:
+  extensions: ["autolink", "fenced_code_blocks", "strikethrough", "superscript", "with_toc_data", "tables", "footnotes", "no_intra_emphasis"]
 highlighter: pygments
+
+excerpt_separator: <!--more-->
+
 sass:
   sass_dir: _sass
-  style: :compressed
+  style: :compressed # or :expanded
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - vendor
